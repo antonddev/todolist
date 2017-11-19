@@ -7,9 +7,13 @@ var todoRoutes = require('./routes/todos');
 
 app.use(bodyParser.json()); // this allows us to capture data from POST/PUT requests.
 app.use(bodyParser.urlencoded({extended: true})); // this
+app.use(express.static(__dirname + '/public')); // using css folders
+app.use(express.static(__dirname + '/views'));  // using css folders
 
 app.get('/', function(req, res){
-  res.send('Hello from the root route! :)');
+  res.send('/', function(req, res){
+    res.sendFile("index.html");
+  });
 });
 
 app.use('/api/todos', todoRoutes); // accessing 
