@@ -1,7 +1,9 @@
 
 var mongoose = require("mongoose");
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/todo-api');
+var mlabDb = 'mongodb://antonddev:antonddev123@ds113736.mlab.com:13736/todolist';
+var localDb = 'mongodb://localhost/todo-api';
+mongoose.connect(mlabDb);
 
 mongoose.Promise = Promise;
 
